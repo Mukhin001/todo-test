@@ -15,8 +15,22 @@ type ToDo = {
     done: boolean;
 };
 
+type Btns = {
+    name: string;
+    classActive: boolean;
+};
+
+const arrBtnsInitial: Btns[] = [
+    { name: 'all', classActive: true },
+    { name: 'active', classActive: false },
+    { name: 'completed', classActive: false },
+    { name: 'clearCompleted', classActive: false },
+];
+
 function App() {
     const [arrToDo, setArrToDo] = useState<ToDo[]>([]);
+    const [arrBtns, setArrBtns] = useState<Btns[]>(arrBtnsInitial);
+    const [keyShowToDO, setKeyShowToDO] = useState<string>('all');
     
     function handleSubmit(e: React.FormEvent<AddToDoFormElements>): void {
         e.preventDefault();
@@ -46,10 +60,32 @@ function App() {
         }
     };
 
-    function handleChooseTodo(e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
+    function handleChooseTodos(e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
         const currenBtn = e.currentTarget.dataset.btnchoosetodo;
-        console.log(currenBtn);
         
+        if(currenBtn) {
+            setKeyShowToDO(currenBtn);
+
+            const newArrBtns: Btns[] = arrBtns.map(btn => {
+                if(btn.name === currenBtn) {
+                    return { ...btn, classActive: true }
+                } else {
+                    return { ...btn, classActive: false }
+                }
+            });
+
+            setArrBtns(newArrBtns);
+        }
+    };
+
+    function filterArrToDo(todo: ToDo, k: string) {
+        if(k === 'all') {
+            return todo;
+        } else if(k === 'active') {
+            return todo.done === false;
+        } else if(k === 'completed') {
+            return todo.done === true;
+        } 
     };
 
     return (
@@ -63,15 +99,23 @@ function App() {
             </form>
 
             <ul>
-                {arrToDo.map(toDo => <li data-id={toDo.id} key={toDo.id} onClick={handleChooseToDo}>{toDo.content}</li>)}
+                { arrToDo.filter((todo) => filterArrToDo(todo, keyShowToDO)).map(toDo => 
+                    (toDo.done) ? 
+                        <li className='choose-todo' data-id={toDo.id} key={toDo.id} onClick={handleChooseToDo}>{toDo.content}</li>
+                    :
+                        <li data-id={toDo.id} key={toDo.id} onClick={handleChooseToDo}>{toDo.content}</li>
+                )}
             </ul>
 
             <div>
                 <p>{arrToDo.length} items</p>
-                <button data-btnchoosetodo='all' onClick={handleChooseTodo} className='active-btn-todos'>all</button>
-                <button data-btnchoosetodo='active' onClick={handleChooseTodo}>active</button>
-                <button data-btnchoosetodo='completed' onClick={handleChooseTodo}>completed</button>
-                <button data-btnchoosetodo='clearCompleted' onClick={handleChooseTodo}>clear completed</button>
+              
+                {arrBtns.map(btn => 
+                    (btn.classActive) ?
+                        <button key={btn.name} data-btnchoosetodo={btn.name} onClick={handleChooseTodos} className='active-btn-todos'>{btn.name}</button>
+                    :
+                        <button key={btn.name} data-btnchoosetodo={btn.name} onClick={handleChooseTodos}>{btn.name}</button>
+                )}
             </div>
         </section>
     )
