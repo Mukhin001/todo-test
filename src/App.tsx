@@ -38,9 +38,8 @@ function App() {
         const { elements } = e.currentTarget;
         const postToDo = elements.postToDo.value;
         setArrToDo(prev => [...prev, 
-            { id: arrToDo.length + 1, content: postToDo, done: false}
+            { id: (arrToDo[arrToDo.length -1]?.id  + 1) || 1 , content: postToDo, done: false}
         ]);
-        console.log(arrToDo);
         
         e.currentTarget.reset();
     };
@@ -62,20 +61,23 @@ function App() {
 
     function handleChooseTodos(e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
         const currenBtn = e.currentTarget.dataset.btnchoosetodo;
-        
-        if(currenBtn) {
-            setKeyShowToDO(currenBtn);
 
-            const newArrBtns: Btns[] = arrBtns.map(btn => {
-                if(btn.name === currenBtn) {
-                    return { ...btn, classActive: true }
-                } else {
-                    return { ...btn, classActive: false }
-                }
-            });
+        if(!currenBtn) return;
 
-            setArrBtns(newArrBtns);
+        if(currenBtn === 'clearCompleted') {
+            const clearToDo: ToDo[] = arrToDo.filter(todo => !todo.done);
+            setArrToDo(clearToDo);
+            return;
         }
+        
+        setKeyShowToDO(currenBtn);
+
+        const newArrBtns: Btns[] = arrBtns.map(btn => {
+            return { ...btn, classActive: btn.name === currenBtn }
+        });
+   
+        setArrBtns(newArrBtns);
+    
     };
 
     function filterArrToDo(todo: ToDo, k: string) {
