@@ -1,7 +1,41 @@
-.active-btn-todos {
-    border: 3px rebeccapurple solid;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.choose-todo {
-  border: 3px solid rgb(25, 163, 87);
+li {
+    list-style: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    background-color: inherit;
+    padding: 5px 10px;
+    transition: .4s ease;
+}
+
+button:hover {
+    background-color: rgb(232, 230, 230);
+    border-radius: 5px;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: unset;
+    color: rgb(182, 156, 156);
+}
+
+.wrapper-todo {
+    background-color: rgb(232, 230, 230);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper-todo__container {
+    background-color: rgb(247, 244, 244);
+    border: 1px solid rgb(212, 211, 211);
 }

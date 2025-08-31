@@ -1,0 +1,12 @@
+.wrapperBtns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 70px;
+    padding: 10px;
+}
+
+.activeBtnTodo {
+    border: 1px rgb(182, 156, 156) solid;
+    border-radius: 5px;
+}

@@ -1,0 +1,8 @@
+.listLi {
+    padding: 10px 15px;
+    border-bottom: 1px solid rgb(212, 211, 211);
+}
+
+.doneTodo {
+    color: rgb(164, 162, 162);
+}

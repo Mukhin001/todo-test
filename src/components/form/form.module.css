@@ -1,0 +1,19 @@
+.formToDo {
+    border: 1px solid rgb(247, 244, 244);
+    border-bottom: 1px solid rgb(212, 211, 211);
+}
+
+.formToDo:focus-within {
+    border: 1px solid rgb(182, 156, 156);
+}
+
+.postToDo {
+    padding: 10px 15px;
+    border: none;
+    background-color: inherit;
+    width: 80%;
+}
+
+.postToDo:focus {
+    outline: none;
+}
