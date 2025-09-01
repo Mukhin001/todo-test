@@ -1,5 +1,5 @@
 import type { ToDo } from '../../App';
-import type { Dispatch, SetStateAction } from 'react';
+import { type Dispatch, type SetStateAction } from 'react';
 import st from './form.module.css';
 
 interface AddToDoFormFields extends HTMLFormControlsCollection {
@@ -13,10 +13,9 @@ interface AddToDoFormElements extends HTMLFormElement {
 interface Props { 
     arrToDo: ToDo[]; 
     setArrToDo: Dispatch<SetStateAction<ToDo[]>>; 
-    setToDoLength: Dispatch<SetStateAction<number>>;
 };
 
-const Form = ({ arrToDo, setArrToDo, setToDoLength }: Props) => {
+const Form = ({ arrToDo, setArrToDo }: Props) => {
 
         const handleSubmit = (e: React.FormEvent<AddToDoFormElements>): void => {
             e.preventDefault();
@@ -30,16 +29,13 @@ const Form = ({ arrToDo, setArrToDo, setToDoLength }: Props) => {
                 { id: (arrToDo[arrToDo.length -1]?.id  + 1) || 1 , content: postToDo, done: false}
             ]);
             
-            setToDoLength(arrToDo.filter(todo => !todo.done).length);
-            console.log(arrToDo);
-            
             e.currentTarget.reset();
         };
 
     return ( 
         <>
             <form onSubmit={handleSubmit} className={st.formToDo}>
-                <input type="text" id='postToDo' className={st.postToDo} defaultValue='' />
+                <input type="text" id='postToDo' className={st.postToDo} defaultValue='' placeholder='What needs to be done?'/>
 
                 <button type='submit'>submit</button>
             </form>

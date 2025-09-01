@@ -1,10 +1,10 @@
 .formToDo {
-    border: 1px solid rgb(247, 244, 244);
-    border-bottom: 1px solid rgb(212, 211, 211);
+    border: 1px solid var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .formToDo:focus-within {
-    border: 1px solid rgb(182, 156, 156);
+    border: 1px solid var(--text-color-red);
 }
 
 .postToDo {
@@ -16,4 +16,18 @@
 
 .postToDo:focus {
     outline: none;
+    background-color: inherit;
+}
+
+.postToDo:-webkit-autofill,
+.postToDo:-webkit-autofill:focus,
+.postToDo:-webkit-autofill:hover {
+    box-shadow: 0 0 0 1000px var(--bg-color, #fff) inset !important;
+}
+
+/* Firefox (новый стандартный селектор) */
+.postToDo:autofill,
+.postToDo:autofill:focus,
+.postToDo:autofill:hover {
+    background-color: var(--bg-color, #fff) !important;
 }

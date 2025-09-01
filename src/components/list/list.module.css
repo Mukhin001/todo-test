@@ -1,8 +1,44 @@
 .listLi {
     padding: 10px 15px;
-    border-bottom: 1px solid rgb(212, 211, 211);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.listLi__content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    width: 100%;
 }
 
 .doneTodo {
     color: rgb(164, 162, 162);
+}
+
+.circleToDo {
+    width: 25px;
+    height: 25px;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconEdit {
+    fill: var(--border-color);
+    transition: .4s ease;
+}
+
+.listLi__iconEdit {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.listLi__iconEdit:hover .iconEdit {
+    fill: var(--text-color);
 }

@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg-color-main: rgb(232, 230, 230);
+    --bg-color: rgb(247, 244, 244);
+    --text-color: #222;
+    --text-color-red: rgb(182, 156, 156);
+    --border-color: rgb(212, 211, 211);
+}
+
 li {
     list-style: none;
 }
@@ -17,25 +25,26 @@ button {
 }
 
 button:hover {
-    background-color: rgb(232, 230, 230);
+    background-color: var(--bg-color-main);
     border-radius: 5px;
 }
 
 h1 {
     font-size: 50px;
     font-weight: unset;
-    color: rgb(182, 156, 156);
+    color: var(--text-color-red);
 }
 
 .wrapper-todo {
-    background-color: rgb(232, 230, 230);
+    background-color: var(--bg-color-main);
     padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
 }
 
 .wrapper-todo__container {
-    background-color: rgb(247, 244, 244);
-    border: 1px solid rgb(212, 211, 211);
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
 }
