@@ -26,7 +26,7 @@ const Form = ({ arrToDo, setArrToDo }: Props) => {
             if(postToDo === '') return;
             
             setArrToDo(prev => [...prev, 
-                { id: (arrToDo[arrToDo.length -1]?.id  + 1) || 1 , content: postToDo, done: false}
+                { id: (arrToDo[arrToDo.length -1]?.id  + 1) || 1 , content: postToDo, done: false, showEdit: false }
             ]);
             
             e.currentTarget.reset();
@@ -35,7 +35,7 @@ const Form = ({ arrToDo, setArrToDo }: Props) => {
     return ( 
         <>
             <form onSubmit={handleSubmit} className={st.formToDo}>
-                <input type="text" id='postToDo' className={st.postToDo} defaultValue='' placeholder='What needs to be done?'/>
+                <input name='postToDo' type="text" id='postToDo' className={st.postToDo} defaultValue='' placeholder='What needs to be done?'/>
 
                 <button type='submit'>submit</button>
             </form>

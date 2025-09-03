@@ -12,6 +12,11 @@
     --border-color: rgb(212, 211, 211);
 }
 
+input {
+    font-family: inherit;
+    font-size: inherit;
+}
+
 li {
     list-style: none;
 }
@@ -22,6 +27,7 @@ button {
     background-color: inherit;
     padding: 5px 10px;
     transition: .4s ease;
+    height: 25px;
 }
 
 button:hover {
