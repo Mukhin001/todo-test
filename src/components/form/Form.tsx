@@ -33,13 +33,11 @@ const Form = ({ arrToDo, setArrToDo }: Props) => {
         };
 
     return ( 
-        <>
-            <form onSubmit={handleSubmit} className={st.formToDo}>
-                <input name='postToDo' type="text" id='postToDo' className={st.postToDo} defaultValue='' placeholder='What needs to be done?'/>
+        <form onSubmit={handleSubmit} className={st.formToDo}>
+            <input name='postToDo' type="text" id='postToDo' className={st.postToDo} defaultValue='' placeholder='What needs to be done?'/>
 
-                <button type='submit'>submit</button>
-            </form>
-        </>
+            <button type='submit'>submit</button>
+        </form>
     );
 };
  

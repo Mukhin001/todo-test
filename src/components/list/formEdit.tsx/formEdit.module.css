@@ -1,0 +1,46 @@
+.editToDO {
+    width: 100%;
+}
+
+.editToDO__input {
+    padding-left: 15px;
+    border: none;
+    background-color: var(--bg-color);
+    width: 90%;
+}
+
+.editToDO__input:focus {
+    outline: none;
+    background-color: inherit;
+    background-color: var(--bg-color);
+}
+
+.editToDO__form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.editToDO__CircleWpap {
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+
+.editToDO__CircleToDo {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hiddenEdit {
+    display: none;
+}
+
+.showEdit {
+    display: flex;
+}

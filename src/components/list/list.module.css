@@ -24,16 +24,6 @@
     color: rgb(164, 162, 162);
 }
 
-.circleToDo {
-    width: 25px;
-    height: 25px;
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .iconEdit {
     fill: var(--border-color);
     transition: .4s ease;
@@ -49,10 +39,6 @@
     fill: var(--text-color);
 }
 
-.editToDO {
-    width: 100%;
-}
-
 .hiddenEdit {
     display: none;
 }
@@ -65,41 +51,6 @@
     border: 1px solid var(--bg-color);
 }
 
-.editToDO__input {
-    padding-left: 15px;
-    border: none;
-    background-color: var(--bg-color);
-    width: 90%;
-}
-
-.editToDO__input:focus {
-    outline: none;
-    background-color: inherit;
-    background-color: var(--bg-color);
-}
-
 .hidden {
     visibility: hidden;
-}
-
-.editToDO__form {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.editToDO__CircleWpap {
-    display: flex;
-    align-items: center;
-    width: 80%;
-}
-
-.editToDO__CircleToDo {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
